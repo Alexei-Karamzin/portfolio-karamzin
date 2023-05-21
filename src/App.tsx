@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 import styled from "styled-components";
+import { StyledBtn } from './components/Button.styled';
+import {Link} from "./components/Link.styled";
 
 function App() {
   return (
@@ -26,32 +28,11 @@ function App() {
 
 export default App;
 
-const StyledBtn = styled.button`
-  border: none;
-  background-color: rgba(243, 97, 97, 0.62);
-  padding: 10px 20px;
-  color: snow;
-
-  &:hover {
-    background-color: #2eeccc;
-  }
-
-  &:last-child {
-    background-color: #009427;
-  }
-`
-
 const SuperButton = styled(StyledBtn)`
   border-radius: 10px;
 `
 
-const Link = styled.a`
-  color: aqua;
-  font-size: 2rem;
-  font-weight: bold;
-  background-color: #000000;
-  padding: 0;
-`
+
 
 const Box = styled.div`
   display: flex;
@@ -70,5 +51,17 @@ const Box = styled.div`
 `
 
 const Menu = styled.nav`
-    
+    ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      
+      li > a {
+        color: gray;
+      }
+      
+      li + li {
+        margin-left: 7px;
+      }
+    }
 `
