@@ -3,6 +3,8 @@ import './App.css';
 import styled from "styled-components";
 import { StyledBtn } from './components/Button.styled';
 import {Link} from "./components/Link.styled";
+import {MyAnimation} from "./styles/animations/Animations";
+import {theme} from "./styles/Theme.styled";
 
 function App() {
   return (
@@ -19,8 +21,10 @@ function App() {
         <Box>
             <StyledBtn as={Link}>Link</StyledBtn>
             <StyledBtn as="a">link</StyledBtn>
-            <StyledBtn>Btn</StyledBtn>
+            <StyledBtn color='red'>Btn</StyledBtn>
             <SuperButton>Super Btn</SuperButton>
+
+            <StyledBtn outlined>Btn</StyledBtn>
         </Box>
     </div>
   );
@@ -30,6 +34,10 @@ export default App;
 
 const SuperButton = styled(StyledBtn)`
   border-radius: 10px;
+
+  &:hover {
+    animation: ${MyAnimation} 2s ease-in-out;
+  }
 `
 
 
@@ -47,6 +55,10 @@ const Box = styled.div`
   
   ${Link} {
     cursor: zoom-in;
+  }
+  
+  @media ${theme.media.tablet} {
+    flex-direction: column;
   }
 `
 

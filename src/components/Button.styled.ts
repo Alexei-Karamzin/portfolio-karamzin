@@ -1,8 +1,13 @@
-import styled from "styled-components";
+import styled, {css} from "styled-components";
 
-export const StyledBtn = styled.button`
+type StyledBtnPropsType = {
+    color?: string
+    outlined?: boolean
+}
+
+export const StyledBtn = styled.button<StyledBtnPropsType>`
   border: none;
-  background-color: rgba(243, 97, 97, 0.62);
+  background-color: ${props => props.color || 'green'};
   padding: 10px 20px;
   color: snow;
 
@@ -13,5 +18,9 @@ export const StyledBtn = styled.button`
   &:last-child {
     background-color: #009427;
   }
+  
+  ${props => props.outlined && css<StyledBtnPropsType>`
+    border: 2px solid black;
+  `}  
 `
 
